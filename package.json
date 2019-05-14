@@ -1,0 +1,15 @@
+{
+  "name": "adaptivecardgenerator",
+  "version": "1.0.3",
+  "description": "This module facilitates in extracting variables in the adaptive card payload json and populate with dynamic content in single line of code",
+  "main": "cardGenerator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "AdaptiveCards",
+    "Dynamic AdaptiveCards"
+  ],
+  "author": "Pragadeesh <pragadeesh.kanagavel@gmail.com>",
+  "license": "ISC"
+}
