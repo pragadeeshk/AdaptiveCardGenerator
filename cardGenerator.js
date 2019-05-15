@@ -4,14 +4,10 @@ class CardGenerator {
         this.templateJson = template;
         this.keys = [];
         this.getKeys(template);
-        // console.log(this.keys);
     }
 
     fetchKeys() {
         return(this.keys);
-        // for (var index in this.keys) {
-        //     console.log(this.keys[index].id);
-        // }
     }
 
     getKeys(obj, path = "") {
@@ -53,8 +49,28 @@ class CardGenerator {
         for (var i = 0; i < this.keys.length; i++) {
             this.setValue(clonedTemplate, this.keys[i].path, data[this.keys[i].id], this.keys[i].id);
         }
-        console.log(JSON.stringify(clonedTemplate));
         return clonedTemplate;
+    }
+
+    bindDataSchema(keys) {
+        var clonedTemplate = JSON.parse(JSON.stringify(this.templateJson));
+        for (var i = 0; i < keys.length; i++) {
+            this.setDataPath(clonedTemplate, keys[i].path, keys[i].dataPath, keys[i].id);
+        }
+        return clonedTemplate;
+    }
+
+    setDataPath(obj, path, dataPath, id) {
+        var crumbs = path.split("/");
+        for (var i = 0; i < crumbs.length; i++) {
+            var key = crumbs[i];
+            if(key) {
+                obj = obj[key];
+            }
+        }
+        if(obj.id === id) {
+            obj.dataPath = dataPath;
+        }
     }
 
     setValue(obj, path, value, id) {
