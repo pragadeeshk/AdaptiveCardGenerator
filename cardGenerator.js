@@ -69,7 +69,17 @@ class CardGenerator {
             }
         }
         if(obj.id === id) {
-            obj.dataPath = dataPath;
+            switch (obj.type){
+                case "TextBlock":
+                    obj.text = dataPath;
+                    break;
+                case "Image":
+                    obj.url = dataPath;
+                    break;
+                default:
+                    obj.value = dataPath;
+                    break;
+            }
         }
     }
 
@@ -117,7 +127,6 @@ class CardGenerator {
                 }
             }
         }
-        console.log(JSON.stringify(clonedTemplate));
         return clonedTemplate;
     }
 

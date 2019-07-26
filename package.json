@@ -1,6 +1,6 @@
 {
   "name": "adaptivecardgenerator",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "This module facilitates in extracting variables in the adaptive card payload json and populate with dynamic content in single line of code",
   "main": "cardGenerator.js",
   "scripts": {
